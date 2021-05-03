@@ -6,16 +6,16 @@ on:
   issues:
     branches:
       - label: enhancement
-        prefix: feature/
+        prefix: feature/${issue.user.login}/
+        gitSafeReplacementChar: '-'
+        branchName: '${issue.number}-${issue.title,}'
+        commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
       - label: bug
-        prefix: bugfix/
+        prefix: bugfix/${issue.user.login}/
+        gitSafeReplacementChar: '-'
+        branchName: '${issue.number}-${issue.title,}'
+        commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
     mode: chatops
-    gitSafeReplacementChar: '-'
-    branchName: '${issue.number}-${issue.title,}'
-  issue_comment:
-    commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
-    
-
 jobs:
   create_issue_branch_job:
     runs-on: ubuntu-latest
