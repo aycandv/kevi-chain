@@ -1,21 +1,19 @@
 # This is a basic workflow to help you get started with Actions
-
 name: Create Issue Branch
 
 on:
   issues:
+    mode: chatops
+    branchName: '${issue.number}-${issue.title,}'
+    gitSafeReplacementChar: '-'
     branches:
       - label: enhancement
         prefix: feature/${issue.user.login}/
-        gitSafeReplacementChar: '-'
-        branchName: '${issue.number}-${issue.title,}'
-        commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
       - label: bug
         prefix: bugfix/${issue.user.login}/
-        gitSafeReplacementChar: '-'
-        branchName: '${issue.number}-${issue.title,}'
-        commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
-    mode: chatops
+  issue_comment:
+    commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
+    
 jobs:
   create_issue_branch_job:
     runs-on: ubuntu-latest
