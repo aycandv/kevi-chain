@@ -12,6 +12,7 @@ on:
     mode: chatops
     gitSafeReplacementChar: '-'
     branchName: '${issue.number}-${issue.title,}'
+  issue_comment:
     commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
     
 
