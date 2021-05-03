@@ -1,2 +1,2 @@
 # kevi
-[![Github CI](https://github.com/aycandv/kevi/workflows/node-ci/badge.svg)](https://github.com/aycandv/kevi/actions)
+[![Node.js CI](https://github.com/aycandv/kevi/actions/workflows/node.js.yml/badge.svg)](https://github.com/aycandv/kevi/actions/workflows/node.js.yml)
